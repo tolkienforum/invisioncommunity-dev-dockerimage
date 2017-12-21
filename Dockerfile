@@ -1,11 +1,7 @@
 FROM ubuntu:16.04
 
-# ARG IPS_ZIP_FILE=invision-community-4.2.6.zip
-
 ENV DATE_TIMEZONE Europe/Zurich
 ENV TERM xterm
-
-
 
 # MySQL Server
 RUN echo 'mysql-server mysql-server/root_password password password' | debconf-set-selections
@@ -57,22 +53,10 @@ RUN apt-get -yq install git nano tree curl unzip
 # Fix: No directory, logging in with HOME=/
 # RUN usermod -d /var/lib/mysql/ mysql
 
-
 # reset NonInteractive mode:
 RUN echo 'debconf debconf/frontend select Readline' | debconf-set-selections
-# RUN dpkg-reconfigure debconf
 
 RUN a2enmod rewrite actions include
-
-#COPY ${IPS_ZIP_FILE} /tmp/
-#COPY info.php /var/www/html/
-#RUN cd /tmp \
-#    && unzip -q /tmp/${IPS_ZIP_FILE} \
-#    && cd ips_* \
-#    && mkdir -p /var/www/html/ips \
-#    && cp -r . /var/www/html/ips \
-#    && chown -R www-data:www-data /var/www/html \
-#    && rm -Rf /tmp/${IPS_ZIP_FILE} /tmp/ips_*
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
