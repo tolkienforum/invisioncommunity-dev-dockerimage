@@ -25,12 +25,13 @@ $ docker volume create mysql_data
 Download the Invisioncommunity Software and unzip it into a folder "ips". Do not yet enable DEV mode or copy the developer tools.
 
 
-Start the container:
+Start the container (from the folder where the local ips files reside so the $PWD points to the correct directory):
 ```
+$ cd /path/to/the/extracted/ips/files/
 $ docker run -it --name ipb -v mysql_data:/var/lib/mysql -v $PWD/ips:/var/www/html/ips -p 80:80 ips:latest
 ```
 
-Go to [localhost](http://localhost/ips/) and use the installer to setup the forum.
+Go to http://localhost/ips/ and use the installer to setup the forum.
 The mysql root user is "root", its password is "password".
 
 After the installer completed and the forum is visible enable developer-mode 
@@ -39,6 +40,13 @@ cp constants.php /ips/
 ```
 
 and copy the developer tools into the ips folder.
+
+Any plugin development is done on the local file-system.
+
+
+## Check the database (optional)
+
+The image contains phpmyadmin too. It can be found below http://localhost/phpmyadmin/ - use the mysql root user to login (see above).
 
 
 ## IPS Developer Documentation Links
