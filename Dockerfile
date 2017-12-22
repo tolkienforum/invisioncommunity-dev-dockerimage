@@ -69,4 +69,4 @@ EXPOSE 3306
 # Docker has a default entrypoint: /bin/sh -c
 # ENTRYPOINT [ "/bin/sh -c" ]
 # cmd is passed to the entrypoint or overwritten on the commandline
-CMD service apache2 start; service mysql start
+CMD service mysql start; /usr/sbin/apache2ctl -D FOREGROUND

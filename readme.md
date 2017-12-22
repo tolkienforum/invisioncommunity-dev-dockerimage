@@ -10,7 +10,8 @@ The forum software itself is not part of the image, it will be mounted into the 
 ## Build the Image
 
 ```
-$ docker build -t ips:latest
+$ cd /path/to/dockerfile-location/
+$ docker build -t ips:latest .
 ```
 
 ## Using the Image
@@ -28,7 +29,7 @@ Download the Invisioncommunity Software and unzip it into a folder "ips". Do not
 Start the container (from the folder where the local ips files reside so the $PWD points to the correct directory):
 ```
 $ cd /path/to/the/extracted/ips/files/
-$ docker run -it --name ipb -v mysql_data:/var/lib/mysql -v $PWD/ips:/var/www/html/ips -p 80:80 ips:latest
+$ docker run -td --name ips -v mysql_data:/var/lib/mysql -v $PWD/ips:/var/www/html/ips -p 80:80 ips:latest
 ```
 
 Go to http://localhost/ips/ and use the installer to setup the forum.
