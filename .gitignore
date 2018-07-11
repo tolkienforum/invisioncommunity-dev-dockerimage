@@ -1,3 +1,5 @@
 *.zip
-/ips/
-/ips_dev/
+ips/
+ips_dev/
+ZZZ_*/
+.vscode/
