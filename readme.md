@@ -1,8 +1,8 @@
 # Introduction
 
-The purpose of this image is plugin development and is not intended as production image. You need docker installed locally to be able to work with this. Tested with docker 17.09.1-ce.
+The purpose of this image is plugin development and is not intended as production image. You need docker installed locally to be able to work with this. Tested with docker 18.03.1-ce.
 
-The image is based on Ubuntu 16.04 LTS and contains Apache, PHP7 and MySQL - it does not use the safest PHP setup! No suExec, no fcgi - just the good old apache module. So don't use this for a production forum!!!
+The image is based on Ubuntu 18.04 LTS and contains Apache, PHP7 and MySQL - it does not use the safest PHP setup! No suExec, no fcgi - just the good old apache module. So don't use this for a production forum!!!
 
 The forum software itself is not part of the image, it will be mounted into the image on startup (see below).
 
