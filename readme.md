@@ -11,7 +11,7 @@ The forum software itself is not part of the image, it will be mounted into the 
 
 ```
 $ cd /path/to/dockerfile-location/
-$ docker build -t ips:latest .
+$ docker build --pull -t ips:latest .
 ```
 
 ## Using the Image
@@ -34,6 +34,9 @@ $ docker run -td --name ips -v mysql_data:/var/lib/mysql -v $PWD/ips:/var/www/ht
 
 Go to http://localhost/ips/ and use the installer to setup the forum.
 The mysql root user is "root", its password is "password".
+
+Make sure to use "localhost" to access the Invisioncommunity and "-TESTINSTALL" as suffix of your license key!
+
 
 After the installer completed and the forum is visible enable developer-mode 
 ```
