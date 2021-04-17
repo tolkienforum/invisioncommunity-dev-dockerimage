@@ -23,31 +23,39 @@ RUN echo debconf debconf/frontend select Noninteractive | debconf-set-selections
 
 RUN apt-get update
 RUN apt-get -yq upgrade
-RUN apt-get install -y --no-install-recommends apt-utils
 
+# PHP Backports:
+RUN apt-get install -y --no-install-recommends apt-utils software-properties-common
+RUN add-apt-repository ppa:ondrej/php
+
+RUN apt-get update
+RUN apt-get -yq upgrade
+
+# PHP Backports: install PHP 7.3
 RUN apt-get -yq install \
-	php7.2 \
-	php7.2-bz2 \
-	php7.2-cli \
-	php7.2-common \
-	php7.2-curl \
-	php7.2-dev \
-	php7.2-enchant \
-	php7.2-gd \
-	php7.2-gmp \
-	php7.2-intl \
-	php7.2-json \
-#	php7.2-mcrypt \
-	php7.2-mysql \
-	php7.2-opcache \
-	php7.2-phpdbg \
-	php7.2-pspell \
-	php7.2-readline \
-	php7.2-recode \
-	php7.2-tidy \
-	php7.2-xsl \
-    php7.2-zip
-RUN apt-get -yq install apache2 libapache2-mod-php7.2
+	php7.3 \
+	php7.3-bz2 \
+	php7.3-cli \
+	php7.3-common \
+	php7.3-curl \
+	php7.3-dev \
+	php7.3-enchant \
+	php7.3-gd \
+	php7.3-gmp \
+	php7.3-intl \
+	php7.3-json \
+#	php7.3-mcrypt \
+	php7.3-mysql \
+	php7.3-opcache \
+	php7.3-phpdbg \
+	php7.3-pspell \
+	php7.3-readline \
+	php7.3-recode \
+	php7.3-tidy \
+	php7.3-xsl \
+    php7.3-zip \
+	php7.3-mbstring
+RUN apt-get -yq install apache2 libapache2-mod-php7.3
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN apt-get -yq install mysql-common mysql-server mysql-client phpmyadmin
