@@ -31,31 +31,30 @@ RUN add-apt-repository ppa:ondrej/php
 RUN apt-get update
 RUN apt-get -yq upgrade
 
-# PHP Backports: install PHP 7.3
+# PHP Backports: install PHP 7.4
 RUN apt-get -yq install \
-	php7.3 \
-	php7.3-bz2 \
-	php7.3-cli \
-	php7.3-common \
-	php7.3-curl \
-	php7.3-dev \
-	php7.3-enchant \
-	php7.3-gd \
-	php7.3-gmp \
-	php7.3-intl \
-	php7.3-json \
-#	php7.3-mcrypt \
-	php7.3-mysql \
-	php7.3-opcache \
-	php7.3-phpdbg \
-	php7.3-pspell \
-	php7.3-readline \
-	php7.3-recode \
-	php7.3-tidy \
-	php7.3-xsl \
-    php7.3-zip \
-	php7.3-mbstring
-RUN apt-get -yq install apache2 libapache2-mod-php7.3
+	php7.4 \
+	php7.4-bz2 \
+	php7.4-cli \
+	php7.4-common \
+	php7.4-curl \
+	php7.4-dev \
+	php7.4-enchant \
+	php7.4-gd \
+	php7.4-gmp \
+	php7.4-intl \
+	php7.4-json \
+	php7.4-mysql \
+	php7.4-opcache \
+	php7.4-phpdbg \
+	php7.4-pspell \
+	php7.4-readline \
+	php7.4-tidy \
+	php7.4-xsl \
+    php7.4-zip \
+	php7.4-mbstring \
+	php7.4-gmp
+RUN apt-get -yq install apache2 libapache2-mod-php7.4
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 RUN apt-get -yq install mysql-common mysql-server mysql-client phpmyadmin
