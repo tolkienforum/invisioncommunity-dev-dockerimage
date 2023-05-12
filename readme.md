@@ -62,4 +62,4 @@ The image contains phpmyadmin too. It can be found below http://localhost/phpmya
 * [Enable Developer Mode](https://invisioncommunity.com/developers/docs/general/enabling-developer-mode-r23/)
 * [Download Developer Tools](https://invisioncommunity.com/files/file/7185-developer-tools/)
 * [Plugins Developer Center](https://invisioncommunity.com/developers/docs/development/plugins/overview-of-plugins-in-ips4-r41/)
-
+* [Invision Community Requirements Checker 4.x](https://invisioncommunity.com/files/file/7046-invision-community-requirements-checker/)
