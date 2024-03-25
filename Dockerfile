@@ -32,8 +32,7 @@ RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 RUN apt-get -yq install mysql-common mysql-server mysql-client phpmyadmin
 RUN apt-get -yq install git nano tree curl unzip
 
-# Fix: No directory, logging in with HOME=/
-# RUN usermod -d /var/lib/mysql/ mysql
+RUN usermod -d /var/lib/mysql/ mysql
 
 # reset NonInteractive mode:
 RUN echo 'debconf debconf/frontend select Readline' | debconf-set-selections

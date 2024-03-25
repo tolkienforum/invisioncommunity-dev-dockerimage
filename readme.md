@@ -33,9 +33,10 @@ $ docker run -td --name ips -v mysql_data:/var/lib/mysql -v $PWD/ips:/var/www/ht
 ```
 
 Go to http://localhost/ips/ and use the installer to setup the forum.
-The mysql root user is "root", its password is "password".
+The mysql root user is "root", its password is "password". The MySQL host "127.0.0.1"
 
-Make sure to use "localhost" to access the Invisioncommunity and "-TESTINSTALL" as suffix of your license key!
+
+Make sure to use "localhost" to access the Invisioncommunity via your browser and "-TESTINSTALL" as suffix of your license key!
 
 
 After the installer completed and the forum is visible enable developer-mode 
