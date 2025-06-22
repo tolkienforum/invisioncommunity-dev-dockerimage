@@ -25,7 +25,12 @@ RUN apt-get -yq install  \
     git nano tree curl unzip
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+RUN echo "PHP_value error_log /var/log/apache2/php_error.log" >> /etc/apache2/apache2.conf
+RUN touch /var/log/apache2/php_error.log
+
 RUN a2enmod rewrite actions include
+
+ADD apache2-startup.sh /usr/sbin/apache2-startup.sh
 
 # Clean up APT when done.
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
@@ -35,4 +40,4 @@ EXPOSE 80
 # Docker has a default entrypoint: /bin/sh -c
 # ENTRYPOINT [ "/bin/sh -c" ]
 # CMD is passed to the entrypoint or overwritten on the commandline
-CMD ["apache2ctl", "-DFOREGROUND"]
+CMD ["/usr/sbin/apache2-startup.sh"]
