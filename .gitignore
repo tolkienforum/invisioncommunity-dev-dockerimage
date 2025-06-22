@@ -4,3 +4,6 @@ ips_dev/
 ZZZ_*/
 ZZZZ_*/
 .vscode/
+.idea/
+
+.env
