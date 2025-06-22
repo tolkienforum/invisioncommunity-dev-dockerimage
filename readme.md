@@ -60,10 +60,10 @@ Make sure to use "localhost" to access the Invisioncommunity via your browser an
 After the installer completed and the forum is visible enable developer-mode 
 
 ```
-cp constants.php /ips/
+cp constants.php /same/path/from/.env/config/ips/directory/
 ```
 
-and copy the developer tools into the ips folder.
+and copy the developer tools into the ips folder (merge all files).
 
 Any plugin development is done on the local file-system (the directory shared with the ips docker container).
 
@@ -77,6 +77,10 @@ The docker-compose contains phpmyadmin too. It can be found below http://localho
 The docler-compose file comes with Elasticseach (can be enabled in the AdminCP) and Redis Cache (also needs to be enabled in AdminCP).
 
 To peek into the search index a Kibana instance is running as well: http://localhost:40080
+
+The hostname for Elasticsearch is `es01`
+
+The hostname for Redis is `redis`
 
 
 ## IPS Developer Documentation Links
