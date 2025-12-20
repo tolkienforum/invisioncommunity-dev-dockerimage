@@ -4,7 +4,7 @@ ENV TZ=Europe/Zurich \
     TERM=xterm \
     DEBIAN_FRONTEND=noninteractive
 
-# PHP 8.4 Backport
+# PHP 8.5 Backport
 RUN apt-get update && apt-get install -yq software-properties-common
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ondrej/apache2
@@ -13,15 +13,17 @@ RUN add-apt-repository -y ppa:ondrej/apache2
 RUN apt-get update && apt-get -yq upgrade
 
 # IPB PHP Requirements
-RUN apt-get -yq install php-mbstring \
-    php-curl \
-    php-xml \
-    php-gd \
-    php-mysql \
-    php-zip
+RUN apt-get -yq install php8.5 \
+    php8.5-mbstring \
+    php8.5-curl \
+    php8.5-xml \
+    php8.5-gd \
+    php8.5-mysql \
+    php8.5-zip \
+    php8.5-gmp
 
 RUN apt-get -yq install  \
-    php-gmp apache2 libapache2-mod-php \
+    apache2 libapache2-mod-php \
     git nano tree curl unzip
 
 RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
