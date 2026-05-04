@@ -4,37 +4,28 @@ Development Setup for Invision Power Board Version 5.
 
 The forum software must be downloaded from the client area - it is not included in the docker images used.
 
-The purpose of this repository is plugin development and is not intended as production setup. You need docker installed locally.
+The purpose of this repository is plugin development and is not intended as production setup. On a production setup I recommend running PHP as FCGI and together with suexec.
 
-Tested with:
-- Docker Desktop 4.41.2 (191736) on MacOS 15.5
-- Docker Engine: 28.1.1
-- Docker Compose: v2.36.0-desktop.1
+You need docker installed locally. Tested with:
+- Docker Desktop 4.71.0 on MacOS 26.4.1
+- Docker Engine: 29.4.1
+- Docker Compose: v5.1.3
 
+The compose file uses an Ubuntu 22.04 LTS base image to run the Invision Community Suite - running an Apache2 Webserver and PHP.
 
-The image running the Apache2 Webserver, PHP and the Forum is based on Ubuntu 22.04 LTS.
-
-Don't use this for a production forum!!! (I recommend running php as FCGI and together with suexec).
 
 The forum software itself is not part of the image, it will be mounted into the image on startup (see below).
 
-
-## Build only the Image for IPS (optional)
-
-```
-$ cd ./ips-build
-$ docker build --pull -t ips:latest .
-```
 
 ## Build and run the Images
 
 Copy the `dist.env` file to `.env`.
 
-Modify the .evn File to reflect your settings.
+Modify the .evn File to reflect your settings. You will need the MySQL password for the IPB installer.
 
 Download the Invision Power Board software from you client area, extract it into the folder you intend to work with it (does not need to be in here), and configure that path in the .env file.
 
-Do not yet enable DEV mode or copy the developer tools. This needs to be done after the initial Forum setup.
+Do not yet enable DEV mode or copy the developer tools. This needs to be done AFTER the initial Forum setup.
 
 Build and run the images:
 ```
