@@ -4,8 +4,9 @@ ENV TZ=Europe/Zurich \
     TERM=xterm \
     DEBIAN_FRONTEND=noninteractive
 
-# PHP 8.5 Backport
-RUN apt-get update && apt-get install -yq software-properties-common
+# PHP Backport
+RUN apt-get update && apt-get upgrade -yq
+RUN apt-get install -yq software-properties-common
 RUN add-apt-repository -y ppa:ondrej/php
 RUN add-apt-repository -y ppa:ondrej/apache2
 
@@ -13,14 +14,15 @@ RUN add-apt-repository -y ppa:ondrej/apache2
 RUN apt-get update && apt-get -yq upgrade
 
 # IPB PHP Requirements
-RUN apt-get -yq install php8.5 \
-    php8.5-mbstring \
-    php8.5-curl \
-    php8.5-xml \
-    php8.5-gd \
-    php8.5-mysql \
-    php8.5-zip \
-    php8.5-gmp
+RUN apt-get -yq install php8.3 \
+    php8.3-mbstring \
+    php8.3-curl \
+    php8.3-xml \
+    php8.3-gd \
+    php8.3-mysql \
+    php8.3-zip \
+    php8.3-gmp \
+    php8.3-intl
 
 RUN apt-get -yq install  \
     apache2 libapache2-mod-php \
