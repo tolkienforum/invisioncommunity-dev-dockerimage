@@ -14,17 +14,9 @@ RUN add-apt-repository -y ppa:ondrej/apache2
 RUN apt-get update && apt-get -yq upgrade
 
 # IPB PHP Requirements
-RUN apt-get -yq install php8.3 \
-    php8.3-mbstring \
-    php8.3-curl \
-    php8.3-xml \
-    php8.3-gd \
-    php8.3-mysql \
-    php8.3-zip \
-    php8.3-gmp \
-    php8.3-intl
-
-RUN apt-get -yq install  \
+RUN apt-get -yq install \
+    php8.2 \
+    php8.2-mbstring php8.2-curl php8.2-xml php8.2-gd php8.2-mysql php8.2-zip php8.2-gmp php8.2-intl \
     apache2 libapache2-mod-php \
     git nano tree curl unzip
 

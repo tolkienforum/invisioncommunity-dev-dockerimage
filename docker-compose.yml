@@ -5,6 +5,7 @@ services:
     restart: unless-stopped
     volumes:
       - mysqldata:/var/lib/mysql
+      - ${IPS_SQL_DUMP_FILES_DIRECTORY}:/tmp/db-dumps
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
@@ -19,16 +20,28 @@ services:
       - PMA_USER=root
       - PMA_PASSWORD=${MYSQL_ROOT_PASSWORD}
 
-  ips:
-    image: ips:latest
+  ips-v4:
+    image: ips:22.06
     pull_policy: never
     restart: unless-stopped
     volumes:
-      - ${IPS_FILES_DIRECTORY}:/var/www/html/ips
+      - ${IPS_V4_FILES_DIRECTORY}:/var/www/html/ips-v4
     ports:
-      - ${IPS_PORT}:80
+      - ${IPS_V4_PORT}:80
     build:
-      context: ./ips-build
+      context: ips-build-ubuntu-22.04
+      dockerfile: Dockerfile
+
+  ips-v5:
+    image: ips:26.06
+    pull_policy: never
+    restart: unless-stopped
+    volumes:
+      - ${IPS_V5_FILES_DIRECTORY}:/var/www/html/ips-v5
+    ports:
+      - ${IPS_V5_PORT}:80
+    build:
+      context: ips-build-ubuntu-26.04
       dockerfile: Dockerfile
 
 # additional images to support certain features of IPB
